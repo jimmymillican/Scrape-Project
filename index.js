@@ -1,6 +1,6 @@
 const PORT = process.env.PORT || 3030
 
-//var http = require('http')
+var http = require('http', PORT)
 
 const axios = require('axios')
 const cheerio = require('cheerio')
@@ -75,11 +75,13 @@ axios('https://charge.pod-point.com/address/tesco-extra-prescot-1j65m')
   
      }).catch(err => console.log(err))
 
-
+     const server = http.createServer((req, res) => {
+      res.statusCode = 200;
+      const msg = 'Hello Node!\n'
+      res.end(msg);
+    })
     
 
 app.listen(PORT , () => console.log('the port is ' + PORT))
-
-
 
 
