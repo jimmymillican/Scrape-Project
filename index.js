@@ -1,4 +1,7 @@
 const PORT = process.env.PORT || 3030
+
+var http = require('http')
+
 const axios = require('axios')
 const cheerio = require('cheerio')
 const { response } = require('express')
@@ -60,6 +63,7 @@ axios('https://charge.pod-point.com/address/tesco-extra-prescot-1j65m')
                   console.log(' Type :  ' + ChargerArray[i + 3] ) 
                 }
                 
+              
 
               }
           
@@ -75,6 +79,11 @@ axios('https://charge.pod-point.com/address/tesco-extra-prescot-1j65m')
     
 
 app.listen(PORT , () => console.log('the port is ' + PORT))
+
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('Hello World!');
+}).listen(PORT)
 
 
 
