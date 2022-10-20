@@ -1,4 +1,4 @@
-const PORT = 8000
+const PORT = process.env.PORT || 3030
 const axios = require('axios')
 const cheerio = require('cheerio')
 const { response } = require('express')
@@ -17,7 +17,7 @@ axios('https://charge.pod-point.com/address/tesco-extra-prescot-1j65m')
 
             // const thePodNumber = $(this).find('.door').text()
             
-             //const thetext = $(this).text()
+            //const thetext = $(this).text()
      
            //$('.title')[0].childNodes[0].nodeValue
             const thetext2 = $(this).text()
@@ -45,9 +45,7 @@ axios('https://charge.pod-point.com/address/tesco-extra-prescot-1j65m')
                   ChargerArray.push(words[i])
                   
                 }
-
             }
-
 
             for (var i = 0; i < ChargerArray.length; i++) {
               //if (words[i].includes('Connector'))
